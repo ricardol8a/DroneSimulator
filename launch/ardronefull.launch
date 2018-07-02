@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<launch>
+    <arg name="ip" default="192.168.1.1" />
+    <arg name="freq" default="8" />
+    <node name="ardrone_driver" pkg="ardrone_autonomy" type="ardrone_driver" output="screen" clear_params="true" args="-ip $(arg ip)">
+        <param name="outdoor" value="0" />
+        <param name="max_bitrate" value="4000" />
+        <param name="bitrate" value="4000" />
+        <param name="navdata_demo" value="0" />
+        <param name="flight_without_shell" value="0" />
+        <param name="altitude_max" value="5000" />
+        <param name="altitude_min" value="50" />
+        <param name="euler_angle_max" value="0.52" />
+        <param name="control_vz_max" value="2000" />
+        <param name="control_yaw" value="6.11" />
+        <param name="ultrasound_freq" value="$(arg freq)" />
+        <param name="realtime_navdata" value="true" />
+        <param name="realtime_video" value="true" />
+	<param name="looprate" value="50" />
+        <rosparam param="cov/imu_la">[0.1, 0.0, 0.0, 0.0, 0.1, 0.0, 0.0, 0.0, 0.1]</rosparam>
+        <rosparam param="cov/imu_av">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0]</rosparam>
+        <rosparam param="cov/imu_or">[1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 100000.0]</rosparam>
+    </node>
+</launch>
+
