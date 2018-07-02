@@ -1,0 +1,61 @@
+﻿Installation Guide of the System for the Execution of Trajectories in Aerial Drones
+Ricardo Enrique Lugo Ochoa
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Requirements
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+[Simulation Mode]
+
+-Valid for operating systems GNU / Linux version 3.16 or higher, Mac OS X version El Capitan or higher, and Windows version 7 or higher.
+-Standard of the C ++ programming language version 11 or higher.
+-Libraries OpenGL version 3 or higher installed in the operating system.
+-Compiler GCC and G ++ version 4.9 or higher (GNU / Linux, Mac OS X), or Microsoft Visual C ++ version 2015 or higher (Windows), installed in the operating system.
+-Compile tools make (GNU / Linux, Mac OS X), or nmake (Windows), installed in the operating system.
+Note: it may be possible to work with previous versions but it has not been tested.
+
+[Implementation mode with the AR.Drone 2.0]
+
+-Valid for GNU / Linux operating systems version 3.16 or higher.
+-Standard of the C ++ programming language version 11 or higher.
+-Libraries OpenGL version 3 or higher, and ROS version Indigo or higher, installed in the operating system.
+-Compiler GCC and G ++ version 4.9 or higher (GNU / Linux, Mac OS X) installed in the operating system.
+-Make and cmake compilation tools installed in the operating system.
+Note: it may be possible to work with previous versions but it has not been tested.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Compilation instructions
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+[Simulation Mode]
+
+-Open a terminal or console in the location of the system folders.
+-Execute with elevated privileges the command 'make' (GNU / Linux, Mac OS X) or with administrator rights the command 'nmake' (Windows).
+Note: it is possible to pass compilation options using the format 'make <PARAMETER> = <VALUE>' (GNU / Linux, Mac OS X) or 'nmake <PARAMETER> = <VALUE>' (Windows). In the Compilation Options section, the parameters and their possible values ​​are detailed.
+
+[Implementation Mode with the AR.Drone 2.0]
+
+-Locate the main folder of the system in the ROS working directory corresponding to the source code (catkin_ws / src).
+-Open a terminal in the working directory of ROS (catkin_ws).
+-Execute the catkin_make command with elevated privileges.
+Note: it is possible to pass compilation options, although it is necessary to add them manually in the CMakeLists.txt file in the 'add_compile_options' section adding them with the format '-D <PARAMETER> = <VALUE>'. In the Compilation Options section, the parameters and their possible values ​​are detailed.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Compilation Options
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+Parameter: VIDEO
+Values: NONE, LOW, MEDIUM, HIGH (Default)
+Description: Modifies the quality of the graphics, with the possibility of deactivating them completely with the NONE option.
+
+Parameter: MATH
+Values: FASTEST, QUICK, BALANCED (Default), BEST
+Description: Modifies the accuracy of the calculation in the ODEs, using different explicit techniques (Euler, Punto-Medio, Runge-Kutta and Dormand-Prince).
+
+Parameter: MODEL
+Values: REAL (Default in implementation), VIRTUAL (Default in simulation), VIRTUAL2, VIRTUAL3
+Description: Modifies the model type of the drone used in the simulation, with the possibility of deactivating it completely with the REAL option.
+
+Parameter: CONTROL
+Values: MANUAL, AUTOMATIC (Default), AUTOMATIC2, AUTOMATIC3, AUTOMATIC4
+Description: Modifies the type of drone control used, with the possibility of deactivating it completely with the MANUAL option. The latter is used to enter the special mode of the implementation where you can manually control the AR.Drone 2.0 with the keyboard.

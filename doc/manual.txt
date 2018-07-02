@@ -1,0 +1,63 @@
+﻿User Manual of the System for the Execution of Trajectories in Aerial Drones
+Ricardo Enrique Lugo Ochoa
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Instructions for Execution
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+[Simulation Mode]
+
+-Open a terminal or console in the location of the system folders.
+-Run the 'setup' file from the 'bin' folder: './bin/setup' (GNU/Linux, Mac OS X) or 'bin\setup.exe' (Windows).
+
+[Implementation Mode with the AR.Drone 2.0]
+
+-Start the AR.Drone and wait for it to initialize.
+-Connect the host computer to the Wi-Fi network of the AR.Drone.
+-Open in a terminal the main ROS node: 'roscore'.
+-Open the node of ardrone_autonomy in another terminal: 'roslaunch ardrone_autonomy ardrone.launch'.
+-Open the node of ar_track_alvar in another terminal: 'roslaunch ar_track_alvar drone_front_camera.launch'.
+-Open the node of the system in another terminal: 'rosrun simulator setup'.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+System Controls
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+[Both Modes]
+
+Key: Escape
+Function: Close the application.
+
+Key: Delete
+Function: Change the perspective of the main view.
+
+Key: Direction arrows
+Function: Move the main view up, down, right or left depending on the perspective.
+
+Key: Mouse wheel
+Function: Zoom in the main view in or out depending on the perspective.
+
+[Simulation Mode]
+
+Key: Spacebar
+Function: Start, Pause and Resume the simulation provided that the total time has not been met.
+
+Key: Numbers from 0 to 9
+Function: It allows selecting the drone of interest, being the number 0 the default one. Valid only when there is more than one drone.
+
+[Implementation Mode with the AR.Drone 2.0]
+
+Key: Spacebar
+Function: AR.Drone takeoff and landing order, although they only work once in the execution of the test. The time begins to run automatically once it is suspended and stable in the air.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Configuration Files
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+-They are located in the 'config' folder and have names related to the parameters they contain. Parameters may require one or more parameters, in which case they are added as a list between brackets '[]' separated by commas ','. The '#' character is used to comment the line. The set includes variables of the tests, such as the type and characteristics of the trajectory, the parameters of the model and the controller, the simulation times, and those associated with the communication and the filter, as well as application data such as size of the working window, the dimensions of the three-dimensional space and the perspective of the main view.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+Output Files
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+-They are located in the 'data' folder. Each run generates a file, named after the date and time of execution, and internally contains a matrix with the values ​​of time, position and orientation, and speeds and linear and angular accelerations of the quadrocopters.
